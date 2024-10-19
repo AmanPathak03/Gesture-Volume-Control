@@ -10,13 +10,9 @@
 - opencv-python
 - mediapipe
 - numpy
-- osascript
+- osascript(For MacOS)
+- pycaw(For Windows)
 
-```bash
-pip install -r requirements.txt
-```
-
----
 
 ### MEDIAPIPE
 
@@ -68,13 +64,20 @@ Source: [MediaPipe Hands Solutions](https://google.github.io/mediapipe/solutions
 <b>Importing Libraries</b>
 
 ```py
+import tkinter as tk
 import cv2
 import mediapipe as mp
 import math
 import numpy as np
-from ctypes import cast, POINTER
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+import subprocess
+import platform
+import threading
+
+# Windows-specific imports
+if platform.system() == 'Windows':
+    from ctypes import cast, POINTER
+    from comtypes import CLSCTX_ALL
+    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 ```
 
 ---
@@ -92,9 +95,18 @@ mp_hands = mp.solutions.hands
 Volume Control Library Usage
 
 ```py
-devices = AudioUtilities.GetSpeakers()
-interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-volume = cast(interface, POINTER(IAudioEndpointVolume))
+vol = int(np.interp(vol_per, [0, 100], [0, 100]))
+    if platform.system() == 'Darwin':  # macOS
+        subprocess.call(["osascript", "-e", f"set volume output volume {vol} --100%"])
+    elif platform.system() == 'Windows':  # Windows
+        # Windows volume control using PyCaw
+        devices = AudioUtilities.GetSpeakers()
+        interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+        volume = cast(interface, POINTER(IAudioEndpointVolume))
+        volume_range = volume.GetVolumeRange()
+        min_vol = volume_range[0]
+        max_vol = volume_range[1]
+        volume.SetMasterVolumeLevel(np.interp(vol_per, [0, 100], [min_vol, max_vol]), None)
 ```
 
 ---
