@@ -248,6 +248,6 @@ cam.release()
 
 If you want to contact me, you can reach me through below handles.
 
-<a href="https://x.com/AmanPathak1612"><img src="https://commons.wikimedia.org/wiki/File:Twitter_X.png" width="25">@AmanPathak1612</img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/amanpathak1612/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"> Aman Pathak </img></a>
+<a href="https://x.com/AmanPathak1612"><img src="[https://commons.wikimedia.org/wiki/File:Twitter_X.png](https://img.freepik.com/premium-vector/new-twitter-logo-x-2023-twitter-x-logo-vector-download_691560-10806.jpg?w=996)" width="25">@AmanPathak1612</img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/amanpathak1612/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"> Aman Pathak </img></a>
 
 </div>
