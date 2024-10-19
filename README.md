@@ -54,7 +54,7 @@ To obtain ground truth data, we have manually annotated ~30K real-world images w
 Source: [MediaPipe Hands Solutions](https://google.github.io/mediapipe/solutions/hands#python-solution-api)
 
 <div align="center">
-    <img alt="mediapipeLogo" src="images/hand_landmarks_docs.png" height="200 x    " />
+    <img alt="mediapipeLogo" src="images/hand_landmarks_docs.png" height="200 x" weight ="400 x"  />
     <img alt="mediapipeLogo" src="images/htm.png" height="360 x" weight ="640 x" />
     
 </div>
